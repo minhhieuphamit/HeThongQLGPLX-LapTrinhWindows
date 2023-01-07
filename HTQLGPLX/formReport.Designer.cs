@@ -36,6 +36,8 @@
             this.reportViewer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.reportViewer.AutoScroll = true;
+            this.reportViewer.AutoSize = true;
             this.reportViewer.Location = new System.Drawing.Point(0, 0);
             this.reportViewer.Name = "reportViewer";
             this.reportViewer.ServerReport.BearerToken = null;
@@ -50,9 +52,10 @@
             this.Controls.Add(this.reportViewer);
             this.Name = "formReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formReport";
+            this.Text = "Xuất biên bản";
             this.Load += new System.EventHandler(this.formReport_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

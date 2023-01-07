@@ -43,19 +43,20 @@
             this.NgayLap = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TienPhat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qLGPLXDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLGPLXDataSet = new HTQLGPLX.QLGPLXDataSet();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuHeThong = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuHoSoGPLX = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuThoat = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuChucNang = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuXuatBienBan = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelMaGPLX = new System.Windows.Forms.Label();
             this.labelNgayLap = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelTienPhat = new System.Windows.Forms.Label();
             this.labelMaBienBan = new System.Windows.Forms.Label();
             this.labelNDViPham = new System.Windows.Forms.Label();
             this.dateTimePickerNgayLap = new System.Windows.Forms.DateTimePicker();
@@ -67,12 +68,9 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
-            this.labelTienPhat = new System.Windows.Forms.Label();
-            this.toolStripMenuChucNang = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuXuatBaoCao = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelTienPhatND = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoiViPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSet)).BeginInit();
             this.menuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +84,6 @@
             this.dataGridViewLoiViPham.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewLoiViPham.AutoGenerateColumns = false;
             this.dataGridViewLoiViPham.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridViewLoiViPham.BackgroundColor = System.Drawing.Color.White;
             this.dataGridViewLoiViPham.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -98,7 +95,6 @@
             this.NgayLap,
             this.TienPhat});
             this.dataGridViewLoiViPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridViewLoiViPham.DataSource = this.qLGPLXDataSetBindingSource;
             this.dataGridViewLoiViPham.EnableHeadersVisualStyles = false;
             this.dataGridViewLoiViPham.Location = new System.Drawing.Point(2, 105);
             this.dataGridViewLoiViPham.Name = "dataGridViewLoiViPham";
@@ -183,16 +179,6 @@
             this.TienPhat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.TienPhat.Width = 57;
             // 
-            // qLGPLXDataSetBindingSource
-            // 
-            this.qLGPLXDataSetBindingSource.DataSource = this.qLGPLXDataSet;
-            this.qLGPLXDataSetBindingSource.Position = 0;
-            // 
-            // qLGPLXDataSet
-            // 
-            this.qLGPLXDataSet.DataSetName = "QLGPLXDataSet";
-            this.qLGPLXDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -243,6 +229,21 @@
             this.toolStripMenuThoat.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuThoat.Text = "Exit";
             this.toolStripMenuThoat.Click += new System.EventHandler(this.toolStripMenuThoat_Click);
+            // 
+            // toolStripMenuChucNang
+            // 
+            this.toolStripMenuChucNang.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuXuatBienBan});
+            this.toolStripMenuChucNang.Name = "toolStripMenuChucNang";
+            this.toolStripMenuChucNang.Size = new System.Drawing.Size(77, 20);
+            this.toolStripMenuChucNang.Text = "Chức năng";
+            // 
+            // toolStripMenuXuatBienBan
+            // 
+            this.toolStripMenuXuatBienBan.Name = "toolStripMenuXuatBienBan";
+            this.toolStripMenuXuatBienBan.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuXuatBienBan.Text = "Xuất biên bản";
+            this.toolStripMenuXuatBienBan.Click += new System.EventHandler(this.toolStripMenuXuatBaoCao_Click);
             // 
             // buttonLogout
             // 
@@ -311,16 +312,16 @@
             this.labelNgayLap.TabIndex = 4;
             this.labelNgayLap.Text = "Ngày lập";
             // 
-            // label4
+            // labelTienPhat
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(401, 297);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Tiền phạt";
+            this.labelTienPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTienPhat.AutoSize = true;
+            this.labelTienPhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTienPhat.Location = new System.Drawing.Point(401, 297);
+            this.labelTienPhat.Name = "labelTienPhat";
+            this.labelTienPhat.Size = new System.Drawing.Size(52, 13);
+            this.labelTienPhat.TabIndex = 5;
+            this.labelTienPhat.Text = "Tiền phạt";
             // 
             // labelMaBienBan
             // 
@@ -482,33 +483,18 @@
             this.buttonSearch.TextChanged += new System.EventHandler(this.formQLyViPham_Load);
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
-            // labelTienPhat
+            // labelTienPhatND
             // 
-            this.labelTienPhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelTienPhat.BackColor = System.Drawing.Color.White;
-            this.labelTienPhat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.labelTienPhat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTienPhat.ForeColor = System.Drawing.Color.Black;
-            this.labelTienPhat.Location = new System.Drawing.Point(505, 291);
-            this.labelTienPhat.Name = "labelTienPhat";
-            this.labelTienPhat.Size = new System.Drawing.Size(171, 24);
-            this.labelTienPhat.TabIndex = 19;
-            this.labelTienPhat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // toolStripMenuChucNang
-            // 
-            this.toolStripMenuChucNang.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuXuatBaoCao});
-            this.toolStripMenuChucNang.Name = "toolStripMenuChucNang";
-            this.toolStripMenuChucNang.Size = new System.Drawing.Size(77, 20);
-            this.toolStripMenuChucNang.Text = "Chức năng";
-            // 
-            // toolStripMenuXuatBaoCao
-            // 
-            this.toolStripMenuXuatBaoCao.Name = "toolStripMenuXuatBaoCao";
-            this.toolStripMenuXuatBaoCao.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuXuatBaoCao.Text = "Xuất báo cáo";
-            this.toolStripMenuXuatBaoCao.Click += new System.EventHandler(this.toolStripMenuXuatBaoCao_Click);
+            this.labelTienPhatND.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelTienPhatND.BackColor = System.Drawing.Color.White;
+            this.labelTienPhatND.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.labelTienPhatND.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTienPhatND.ForeColor = System.Drawing.Color.Black;
+            this.labelTienPhatND.Location = new System.Drawing.Point(505, 291);
+            this.labelTienPhatND.Name = "labelTienPhatND";
+            this.labelTienPhatND.Size = new System.Drawing.Size(171, 24);
+            this.labelTienPhatND.TabIndex = 19;
+            this.labelTienPhatND.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // formQLyViPham
             // 
@@ -516,7 +502,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(830, 463);
-            this.Controls.Add(this.labelTienPhat);
+            this.Controls.Add(this.labelTienPhatND);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.buttonAdd);
@@ -527,7 +513,7 @@
             this.Controls.Add(this.dateTimePickerNgayLap);
             this.Controls.Add(this.labelNDViPham);
             this.Controls.Add(this.labelMaBienBan);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelTienPhat);
             this.Controls.Add(this.labelNgayLap);
             this.Controls.Add(this.labelMaGPLX);
             this.Controls.Add(this.textBoxMaBienBan);
@@ -545,7 +531,6 @@
             this.Load += new System.EventHandler(this.formQLyViPham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLoiViPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSet)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -556,7 +541,6 @@
 
         #endregion
         private System.Windows.Forms.BindingSource qLGPLXDataSetBindingSource;
-        private QLGPLXDataSet qLGPLXDataSet;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuHeThong;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuHoSoGPLX;
@@ -569,7 +553,7 @@
         private System.Windows.Forms.DataGridView dataGridViewLoiViPham;
         private System.Windows.Forms.Label labelMaGPLX;
         private System.Windows.Forms.Label labelNgayLap;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelTienPhat;
         private System.Windows.Forms.Label labelMaBienBan;
         private System.Windows.Forms.Label labelNDViPham;
         private System.Windows.Forms.DateTimePicker dateTimePickerNgayLap;
@@ -587,8 +571,8 @@
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonSearch;
-        private System.Windows.Forms.Label labelTienPhat;
+        private System.Windows.Forms.Label labelTienPhatND;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuChucNang;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuXuatBaoCao;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuXuatBienBan;
     }
 }

@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -71,9 +70,43 @@ namespace HTQLGPLX
             }
         }
 
+        private void loadLabelNameUser()
+        {
+            try
+            {
+                String querry = "SELECT nameUser FROM [User] WHERE idUser = '" + formLogin.idUser + "'";
+                SqlDataAdapter sda = new SqlDataAdapter(querry, conn.GetConnection());
+                DataTable dtbl = new DataTable();
+                sda.Fill(dtbl);
+                labelNameUser.Text = "Xin chào " + dtbl.Rows[0][0].ToString() + "!";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void phanQuyen()
+        {
+            if (formLogin.idRole == "1")
+            {
+                buttonAdd.Visible = true;
+                buttonEdit.Visible = true;
+                buttonDelete.Visible = true;
+            }
+            else if (formLogin.idRole == "2")
+            {
+                buttonAdd.Visible = false;
+                buttonEdit.Visible = false;
+                buttonDelete.Visible = false;
+            }
+        }
+
         private void formHoSo_Load(object sender, EventArgs e)
         {
             loadDataGridView();
+            loadLabelNameUser();
+            phanQuyen();
             ToolTip toolTipTxtBoxUsername = new ToolTip();
             toolTipTxtBoxUsername.SetToolTip(textBoxSearch, "Tìm kiếm theo mã giấy phép lái xe");
             ToolTip toolTipButtonSearch = new ToolTip();

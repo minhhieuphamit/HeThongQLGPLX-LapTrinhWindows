@@ -33,7 +33,6 @@
             this.textBoxMaGPLX = new System.Windows.Forms.TextBox();
             this.comboBoxMaHang = new System.Windows.Forms.ComboBox();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.qLGPLXDataSet = new HTQLGPLX.QLGPLXDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +49,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxTTSatHach = new System.Windows.Forms.ComboBox();
             this.buttonXoaAllThongTin = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxCCCD
@@ -99,11 +97,6 @@
             this.buttonAdd.Text = "Thêm";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
-            // 
-            // qLGPLXDataSet
-            // 
-            this.qLGPLXDataSet.DataSetName = "QLGPLXDataSet";
-            this.qLGPLXDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -309,7 +302,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm hồ sơ";
             this.Load += new System.EventHandler(this.formThemThongTin_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,7 +313,6 @@
         private System.Windows.Forms.TextBox textBoxMaGPLX;
         private System.Windows.Forms.ComboBox comboBoxMaHang;
         private System.Windows.Forms.Button buttonAdd;
-        private QLGPLXDataSet qLGPLXDataSet;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

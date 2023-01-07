@@ -67,18 +67,17 @@
             this.DiemTH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qLGPLXDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.qLGPLXDataSet = new HTQLGPLX.QLGPLXDataSet();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuHeThong = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuQLViPham = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuLogout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.labelNameUser = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHSGPLX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSet)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +87,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.labelNameUser);
             this.panel1.Controls.Add(this.buttonEdit);
             this.panel1.Controls.Add(this.buttonDelete);
             this.panel1.Controls.Add(this.buttonAdd);
@@ -462,16 +462,6 @@
             this.DiaChi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.DiaChi.Width = 45;
             // 
-            // qLGPLXDataSetBindingSource
-            // 
-            this.qLGPLXDataSetBindingSource.DataSource = this.qLGPLXDataSet;
-            this.qLGPLXDataSetBindingSource.Position = 0;
-            // 
-            // qLGPLXDataSet
-            // 
-            this.qLGPLXDataSet.DataSetName = "QLGPLXDataSet";
-            this.qLGPLXDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -497,7 +487,7 @@
             // 
             this.toolStripMenuQLViPham.Image = global::HTQLGPLX.Properties.Resources.driving_license;
             this.toolStripMenuQLViPham.Name = "toolStripMenuQLViPham";
-            this.toolStripMenuQLViPham.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuQLViPham.Size = new System.Drawing.Size(177, 22);
             this.toolStripMenuQLViPham.Text = "Quản lý lỗi vi phạm";
             this.toolStripMenuQLViPham.Click += new System.EventHandler(this.toolStripMenuQLViPham_Click);
             // 
@@ -505,22 +495,34 @@
             // 
             this.toolStripMenuLogout.Image = global::HTQLGPLX.Properties.Resources.logout;
             this.toolStripMenuLogout.Name = "toolStripMenuLogout";
-            this.toolStripMenuLogout.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuLogout.Size = new System.Drawing.Size(177, 22);
             this.toolStripMenuLogout.Text = "Đăng xuất";
             this.toolStripMenuLogout.Click += new System.EventHandler(this.toolStripMenuLogout_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // toolStripMenuExit
             // 
             this.toolStripMenuExit.Name = "toolStripMenuExit";
             this.toolStripMenuExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.toolStripMenuExit.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuExit.Size = new System.Drawing.Size(177, 22);
             this.toolStripMenuExit.Text = "Exit";
             this.toolStripMenuExit.Click += new System.EventHandler(this.toolStripMenuExit_Click);
+            // 
+            // labelNameUser
+            // 
+            this.labelNameUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNameUser.AutoSize = true;
+            this.labelNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNameUser.Location = new System.Drawing.Point(716, 36);
+            this.labelNameUser.Name = "labelNameUser";
+            this.labelNameUser.Size = new System.Drawing.Size(51, 20);
+            this.labelNameUser.TabIndex = 9;
+            this.labelNameUser.Text = "label2";
+            this.labelNameUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formHoSoGPLX
             // 
@@ -540,7 +542,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewHSGPLX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLGPLXDataSet)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -551,7 +552,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.BindingSource qLGPLXDataSetBindingSource;
-        private QLGPLXDataSet qLGPLXDataSet;
         private System.Windows.Forms.Button buttonLogout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -581,5 +581,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuExit;
         private System.Windows.Forms.Button buttonEdit;
         public System.Windows.Forms.DataGridView dataGridViewHSGPLX;
+        private System.Windows.Forms.Label labelNameUser;
     }
 }

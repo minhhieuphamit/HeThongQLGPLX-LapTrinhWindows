@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -78,7 +77,6 @@ namespace HTQLGPLX
                 labelSOCCCD.Text = dt.Rows[0]["SoCCCD"].ToString();
                 labelHoTen.Text = dt.Rows[0]["HoTen"].ToString();
                 textBoxMaGPLX.Text = dt.Rows[0]["MaGPLX"].ToString();
-                comboBoxMaHang.Text = dt.Rows[0]["MaHang"].ToString();
                 dateTimePickerNgayCap.Text = dt.Rows[0]["NgayCapGPLX"].ToString();
                 dateTimePickerNgayHetHan.Text = dt.Rows[0]["NgayHetHanGPLX"].ToString();
                 textBoxDiemLT.Text = dt.Rows[0]["DiemLT"].ToString();

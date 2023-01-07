@@ -8,6 +8,65 @@ namespace HTQLGPLX
 {
     public partial class formLogin : Form
     {
+        ConnectDB conn = new ConnectDB();
+        
+        public static String idUser = "";
+        public static String idRole = "";
+        
+        public String getIdUser(String username, String password)
+        {
+            {
+                String query = "SELECT idUser FROM [User] WHERE Username = '" + username + "' AND Password = '" + password + "'";
+                try
+                {
+                    SqlDataAdapter sda = new SqlDataAdapter(query, conn.GetConnection());
+                    DataTable dt = new DataTable();
+
+                    sda.Fill(dt);
+
+                    if (dt.Rows.Count > 0)
+                    {
+                        idUser = dt.Rows[0][0].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.Message.ToString();
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return idUser;
+            }
+        }
+
+        public String getIdRole()
+        {
+            {
+                String query = "SELECT idRole FROM [User] WHERE idUser = '" + idUser + "'";
+                try
+                {
+                    SqlDataAdapter sda = new SqlDataAdapter(query, conn.GetConnection());
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        idRole = dt.Rows[0][0].ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ex.Message.ToString();
+                }
+                finally
+                {
+                    conn.Close();
+                }
+                return idRole;
+            }
+        }
+
         public formLogin()
         {
             InitializeComponent();
@@ -24,23 +83,32 @@ namespace HTQLGPLX
                 textBoxPassword.PasswordChar = '*';
             }
         }
-
-        //SqlConnection conn = new SqlConnection(@"Data Source=35.222.184.247;Initial Catalog=QLGPLX;Persist Security Info=True;User ID=sqlserver;Password=admin");
-        ConnectDB conn = new ConnectDB();
+        
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             try
             {
-                string querry = "EXEC proc_Account '" + textBoxUsername.Text + "', '" + textBoxPassword.Text + "'";
+                String querry = "select * from [User] where Username = '" + textBoxUsername.Text + "' and Password = '" + textBoxPassword.Text + "'";
+                idUser = getIdUser(textBoxUsername.Text, textBoxPassword.Text);
+                idRole = getIdRole();
                 SqlDataAdapter sda = new SqlDataAdapter(querry, conn.GetConnection());
                 DataTable dtbl = new DataTable();
                 sda.Fill(dtbl);
                 if (dtbl.Rows.Count > 0)
                 {
                     MessageBox.Show("Login successful!!!", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    formHoSoGPLX form = new formHoSoGPLX();
-                    this.Hide();
-                    form.Show();
+                    if (getIdRole() == "1")
+                    {
+                        formHoSoGPLX formHoSoGPLX = new formHoSoGPLX();
+                        formHoSoGPLX.Show();
+                        this.Hide();
+                    }
+                    else if (getIdRole() == "2")
+                    {
+                        formQLyViPham formQLyViPham = new formQLyViPham();
+                        formQLyViPham.Show();
+                        this.Hide();
+                    }
                 }
                 else if (textBoxUsername.Text == "Username" && textBoxPassword.Text == "Password")
                 {
